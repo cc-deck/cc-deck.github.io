@@ -1,0 +1,275 @@
+/* Antwort custom overrides for countableSet/antora-ui bundle */
+/* The bundle handles light/dark mode via CSS custom properties and data-theme attribute. */
+
+/* ---- Font: Inter (variable, loaded from Google Fonts) ---- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&display=swap');
+
+:root {
+  --body-font-family: "Inter", -apple-system, system-ui, blinkmacsystemfont, "Segoe UI", roboto, sans-serif;
+  /* Antwort teal accent for light mode */
+  --link-font-color: #00a88e;
+  --link_hover-font-color: #00c5a8;
+  /* Doc content: 15% larger than default (17px -> 19.55px) */
+  --doc-font-size: calc(1.0625em * 1.15);
+  --doc-font-size--desktop: calc(19.55 / var(--rem-base) * 1rem);
+  /* Pagefind UI: light theme */
+  --pagefind-ui-scale: 0.55;
+  --pagefind-ui-primary: #00a88e;
+  --pagefind-ui-text: #333;
+  --pagefind-ui-background: #fff;
+  --pagefind-ui-border: #dbdbdb;
+  --pagefind-ui-tag: #f0f0f0;
+  --pagefind-ui-border-width: 1px;
+  --pagefind-ui-border-radius: 4px;
+  --pagefind-ui-font: "Inter", -apple-system, system-ui, sans-serif;
+}
+
+/* ---- Theme toggle fix ---- */
+.themeSwitch {
+  display: inline-block;
+}
+
+/* ---- Pagefind: compact navbar search ---- */
+
+/* Search wrapper needs relative positioning for the absolute dropdown */
+.navbar-item.search {
+  position: relative;
+}
+
+/* Constrain the search form width */
+.pagefind-ui {
+  width: 220px;
+}
+
+/* Hide the form wrapper padding/margin */
+.pagefind-ui .pagefind-ui__form {
+  position: relative;
+}
+
+/* Compact input for navbar */
+.pagefind-ui .pagefind-ui__search-input {
+  height: 1.75rem !important;
+  font-size: 0.8rem !important;
+  padding: 0 1.5rem 0 1.6rem !important;
+  border-radius: 4px !important;
+}
+
+/* Reposition the magnifying glass icon (::before on form) */
+.pagefind-ui .pagefind-ui__form::before {
+  top: 0.4rem !important;
+  left: 0.4rem !important;
+  width: 0.85rem !important;
+  height: 0.85rem !important;
+}
+
+/* Fix the clear button */
+.pagefind-ui .pagefind-ui__search-clear {
+  height: 1.75rem !important;
+  width: 1.5rem !important;
+  top: 0 !important;
+  right: 0 !important;
+  font-size: 0 !important;
+  padding: 0 !important;
+  background: none !important;
+  border: none !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.pagefind-ui .pagefind-ui__search-clear::after {
+  content: "\00d7";
+  font-size: 1rem;
+  color: var(--pagefind-ui-text);
+  line-height: 1;
+}
+
+/* Results dropdown: floating overlay */
+.pagefind-ui .pagefind-ui__drawer {
+  position: absolute !important;
+  top: 100% !important;
+  right: 0 !important;
+  left: auto !important;
+  z-index: 200;
+  width: 480px;
+  max-height: 70vh;
+  overflow-y: auto;
+  background: var(--pagefind-ui-background) !important;
+  border: 1px solid var(--pagefind-ui-border);
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  padding: 0.5rem;
+}
+
+/* Result items */
+.pagefind-ui .pagefind-ui__result {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--pagefind-ui-border);
+}
+
+.pagefind-ui .pagefind-ui__result:last-child {
+  border-bottom: none;
+}
+
+.pagefind-ui .pagefind-ui__result-link {
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.pagefind-ui .pagefind-ui__result-excerpt {
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+
+/* Tame the highlight markers */
+.pagefind-ui mark {
+  background-color: rgba(0, 168, 142, 0.15);
+  color: inherit;
+  padding: 0.1em 0.15em;
+  border-radius: 2px;
+}
+
+/* Message (e.g., "17 results for file") */
+.pagefind-ui .pagefind-ui__message {
+  font-size: 0.75rem;
+  padding: 0.25rem 0;
+  color: var(--pagefind-ui-text);
+  opacity: 0.7;
+}
+
+/* Hide images in results (already set via JS but reinforce) */
+.pagefind-ui .pagefind-ui__result-thumb {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .pagefind-ui {
+    width: 140px;
+  }
+
+  .pagefind-ui .pagefind-ui__drawer {
+    width: calc(100vw - 2rem);
+    right: -1rem;
+  }
+}
+
+/* ---- Dark mode: reduced contrast with cool blue-gray tones ---- */
+[data-theme="dark"] {
+  --body-font-family: "Inter", -apple-system, system-ui, blinkmacsystemfont, "Segoe UI", roboto, sans-serif;
+
+  /* Antwort teal accent */
+  --link-font-color: #00e5c0;
+  --link_hover-font-color: #33ebd0;
+
+  /* Background palette: cool dark navy (matching landing page direction) */
+  --color-body-bg: #0f1219;
+  --color-panel-bg: #161b24;
+  --color-pre-bg: #1a2030;
+  --color-pre-border: #2a3448;
+
+  /* Semantic grays: shifted from warm brown to cool blue-gray */
+  --color-jet-90: #0c0f15;
+  --color-jet-80: #0f1219;
+  --color-jet-70: #131720;
+  --color-jet-60: #161b24;
+  --color-jet-50: #1c2230;
+  --color-jet-30: #1c2230;
+  --color-gray-20: #232a38;
+  --color-gray-10: #2e3748;
+
+  /* Text: softer than pure white, cool silver-blue for reduced contrast */
+  --color-white-20: #c8d0dc;
+  --color-white-10: #a8b2c2;
+  --color-smoke-90: #8090a8;
+  --color-smoke-80: #7888a0;
+  --color-smoke-70: #5a6a82;
+  --color-smoke-60: #98a4b8;
+  --color-smoke-50: #a0acbe;
+  --color-smoke-40: #b0baca;
+
+  /* Headings: slightly brighter than body text */
+  --heading-font-color: #d0d8e4;
+
+  /* Panel borders */
+  --panel-border-color: #232a38;
+
+  /* Footer */
+  --footer-background: #1c2230;
+  --footer-font-color: #8090a8;
+  --footer-link-font-color: #a8b2c2;
+
+  /* Sidebar */
+  --sidebar-background: #1c2230;
+
+  /* Pagefind UI: dark theme */
+  --pagefind-ui-primary: #00e5c0;
+  --pagefind-ui-text: #a8b2c2;
+  --pagefind-ui-background: #161b24;
+  --pagefind-ui-border: #2e3748;
+  --pagefind-ui-tag: #1c2230;
+}
+
+/* Dark mode: search input */
+[data-theme="dark"] .pagefind-ui .pagefind-ui__search-input {
+  background-color: #1c2230 !important;
+  color: #a8b2c2 !important;
+  border-color: #2e3748 !important;
+}
+
+[data-theme="dark"] .pagefind-ui .pagefind-ui__search-input::placeholder {
+  color: #5a6a82 !important;
+}
+
+[data-theme="dark"] .pagefind-ui .pagefind-ui__search-input:focus {
+  border-color: #00e5c0 !important;
+}
+
+/* Dark mode: clear button */
+[data-theme="dark"] .pagefind-ui .pagefind-ui__search-clear::before {
+  color: #8090a8;
+}
+
+/* Dark mode: results dropdown - fully opaque, lifted surface */
+[data-theme="dark"] .pagefind-ui .pagefind-ui__drawer {
+  background: #1c2230 !important;
+  border-color: #2e3748 !important;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.7) !important;
+}
+
+[data-theme="dark"] .pagefind-ui .pagefind-ui__result {
+  border-color: #2e3748 !important;
+}
+
+[data-theme="dark"] .pagefind-ui .pagefind-ui__result-link {
+  color: #00e5c0 !important;
+}
+
+[data-theme="dark"] .pagefind-ui .pagefind-ui__result-title {
+  color: #c8d0dc !important;
+  font-weight: 600;
+}
+
+[data-theme="dark"] .pagefind-ui .pagefind-ui__result-excerpt {
+  color: #98a4b8 !important;
+}
+
+/* Dark mode: message text */
+[data-theme="dark"] .pagefind-ui .pagefind-ui__message {
+  color: #8090a8 !important;
+}
+
+/* Dark mode: sub-result entries */
+[data-theme="dark"] .pagefind-ui .pagefind-ui__result-nested {
+  border-color: #232a38 !important;
+}
+
+[data-theme="dark"] .pagefind-ui .pagefind-ui__result-nested .pagefind-ui__result-link {
+  color: #a0acbe !important;
+}
+
+/* Dark mode: highlights */
+[data-theme="dark"] .pagefind-ui mark {
+  background-color: rgba(0, 229, 192, 0.15);
+  color: #c8d0dc;
+}

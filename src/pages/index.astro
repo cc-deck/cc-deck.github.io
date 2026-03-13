@@ -1,0 +1,213 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import Features from '~/components/widgets/Features.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'cc-deck - Your Claude Code command center',
+  ignoreTitleTemplate: true,
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Section -->
+
+  <Hero
+    tagline="Zellij-powered &middot; Container-ready &middot; Multi-platform"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Get Started',
+        href: '#get-started',
+        icon: 'tabler:rocket',
+      },
+      {
+        text: 'View on GitHub',
+        href: 'https://github.com/rhuss/cc-deck',
+        target: '_blank',
+        icon: 'tabler:brand-github',
+      },
+    ]}
+  >
+    <Fragment slot="title">
+      cc-deck<br /><span class="text-accent">Your Claude Code command center.</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      The TweetDeck for Claude Code. Monitor, attend to, and orchestrate multiple AI coding sessions from a single Zellij sidebar. Build custom container images. Deploy locally or on Kubernetes.
+    </Fragment>
+
+    <Fragment slot="image">
+      <div class="relative m-auto max-w-4xl">
+        <div class="rounded-lg bg-slate-900 border border-slate-700 p-4 sm:p-6 shadow-2xl font-mono text-xs sm:text-sm text-slate-300 overflow-x-auto">
+          <div class="flex items-center gap-2 mb-3 text-slate-500">
+            <span class="w-3 h-3 rounded-full bg-red-500/70"></span>
+            <span class="w-3 h-3 rounded-full bg-yellow-500/70"></span>
+            <span class="w-3 h-3 rounded-full bg-green-500/70"></span>
+            <span class="ml-2 text-xs">terminal</span>
+          </div>
+          <pre class="whitespace-pre-wrap" set:html={`<span class="text-accent">$</span> <span class="text-amber-400">podman</span> run -d --name mydev \\
+  -e ANTHROPIC_API_KEY=sk-ant-... \\
+  <span class="text-emerald-400">quay.io/rhuss/cc-deck-demo:latest</span>
+
+<span class="text-accent">$</span> <span class="text-amber-400">podman</span> exec -it mydev \\
+  <span class="text-emerald-400">zellij --layout cc-deck</span>
+
+<span class="text-slate-500"># The sidebar shows all your Claude Code sessions.</span>
+<span class="text-slate-500"># Smart attend switches to the one that needs you.</span>
+<span class="text-slate-500"># Navigate with keyboard. Build images with AI.</span>`} /></pre>
+        </div>
+      </div>
+    </Fragment>
+  </Hero>
+
+  <!-- Core Value Proposition -->
+
+  <Features
+    id="pillars"
+    tagline="Why cc-deck"
+    title="Your sessions, under control"
+    columns={2}
+    items={[
+      {
+        title: 'Zellij Sidebar Plugin',
+        description:
+          'A real-time sidebar showing all your Claude Code sessions across tabs. Smart attend automatically switches to the session that needs your attention. Keyboard navigation, pause, search, rename. Think TweetDeck columns, but for AI coding sessions.',
+        icon: 'tabler:layout-sidebar-right',
+      },
+      {
+        title: 'Custom Container Images',
+        description:
+          'An AI-driven build pipeline that analyzes your repositories, discovers tool dependencies, and generates optimized container images. Extract tools, configure settings, build, and push with four Claude Code commands.',
+        icon: 'tabler:package',
+      },
+      {
+        title: 'Multi-Platform',
+        description:
+          'Run locally with Zellij, in Podman containers with mounted source code, or deploy as StatefulSets on Kubernetes and OpenShift. Same sidebar experience everywhere. Persistent sessions across reconnects.',
+        icon: 'tabler:device-desktop',
+      },
+      {
+        title: 'Session Management',
+        description:
+          'Snapshots save and restore your session state. Pause sessions to exclude them from attend rotation. Auto-save on hooks. The sidebar tracks activity, permissions, and completion status for every session.',
+        icon: 'tabler:list-check',
+      },
+    ]}
+  />
+
+  <!-- Feature Details -->
+
+  <Features
+    id="features"
+    tagline="Features"
+    title="Everything you need for multi-session Claude Code"
+    columns={3}
+    items={[
+      {
+        title: 'Smart Attend',
+        description:
+          'Priority-based round-robin attention across sessions. Permission requests first, then notifications, then completed tasks. Skip sessions that are actively working. One keypress cycles through what needs you.',
+        icon: 'tabler:bell-ringing',
+      },
+      {
+        title: 'Keyboard Navigation',
+        description:
+          'Toggle navigation mode with Alt+s. Move with j/k or arrows. Enter to switch, Esc to go back. Search with /, help with ?. Every action has a keyboard shortcut.',
+        icon: 'tabler:keyboard',
+      },
+      {
+        title: 'Build Pipeline',
+        description:
+          'Four AI commands: /cc-deck.extract discovers tools from your repos. /cc-deck.settings selects local config to include. /cc-deck.build generates a Containerfile and builds the image. /cc-deck.push publishes it.',
+        icon: 'tabler:hammer',
+      },
+      {
+        title: 'Podman Ready',
+        description:
+          'Mount your source code as volumes. Pass API keys or Vertex AI credentials. Persistent containers with sleep infinity. Reconnect anytime with podman exec.',
+        icon: 'tabler:container',
+      },
+      {
+        title: 'Kubernetes Native',
+        description:
+          'Deploy as StatefulSets with PersistentVolumes. Inject credentials via Secrets. Scale sessions with replicas. Connect via port-forward or direct exec.',
+        icon: 'tabler:cloud',
+      },
+      {
+        title: 'Session Snapshots',
+        description:
+          'Save and restore session state across container restarts. Auto-save via hooks. Name your snapshots. List and manage saved states from the CLI.',
+        icon: 'tabler:camera',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features>
+
+  <!-- Quickstart Steps -->
+
+  <Steps
+    id="get-started"
+    tagline="Get Started"
+    title="Running in two minutes"
+    items={[
+      {
+        title: 'Step 1: <span class="font-medium">Start the container</span>',
+        description:
+          'Pull the demo image and start a persistent container. Set your API key or mount Vertex AI credentials: <code class="bg-slate-800 text-accent px-2 py-0.5 rounded text-sm">podman run -d --name mydev -e ANTHROPIC_API_KEY=sk-ant-... quay.io/rhuss/cc-deck-demo:latest</code>',
+        icon: 'tabler:container',
+      },
+      {
+        title: 'Step 2: <span class="font-medium">Launch cc-deck</span>',
+        description:
+          'Connect to the container and start Zellij with the cc-deck layout: <code class="bg-slate-800 text-accent px-2 py-0.5 rounded text-sm">podman exec -it mydev zellij --layout cc-deck</code>',
+        icon: 'tabler:rocket',
+      },
+      {
+        title: 'Step 3: <span class="font-medium">Start coding with Claude</span>',
+        description:
+          'Open new tabs, start Claude Code sessions. The sidebar tracks them all. Press Alt+n for smart attend, Alt+s to navigate. Claude Code is ready to go.',
+        icon: 'tabler:code',
+      },
+      {
+        title: 'Step 4: <span class="font-medium">Build your own image</span>',
+        description:
+          'Create a custom image with your team\'s tools and settings: <code class="bg-slate-800 text-accent px-2 py-0.5 rounded text-sm">cc-deck image init my-team-image</code>, then use the AI commands to configure and build.',
+        icon: 'tabler:hammer',
+      },
+    ]}
+  />
+
+  <!-- Call to Action -->
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Read the Docs',
+        href: '/docs/',
+        icon: 'tabler:book',
+      },
+      {
+        text: 'View on GitHub',
+        href: 'https://github.com/rhuss/cc-deck',
+        target: '_blank',
+        icon: 'tabler:brand-github',
+      },
+    ]}
+  >
+    <Fragment slot="title">
+      Ready to take control of your Claude Code sessions?
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Open source. Works locally, in containers, or on Kubernetes.
+    </Fragment>
+  </CallToAction>
+</Layout>
