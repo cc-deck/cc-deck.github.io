@@ -8,7 +8,14 @@
   --body-font-family: "Inter", -apple-system, system-ui, blinkmacsystemfont, "Segoe UI", roboto, sans-serif;
   /* cc-deck blue accent for light mode */
   --link-font-color: #1e40af;
-  --link_hover-font-color: #2563eb;
+  --link_hover-font-color: #1e3a8a;
+  /* Admonition note color: match cc-deck blue */
+  --note-color: #1e40af;
+  /* Navbar: dark blue */
+  --navbar-background: #0f172a;
+  --navbar_hover-background: #1e293b;
+  /* Nav sidebar active/hover */
+  --nav-heading-font-color: #1e40af;
   /* Doc content: 15% larger than default (17px -> 19.55px) */
   --doc-font-size: calc(1.0625em * 1.15);
   --doc-font-size--desktop: calc(19.55 / var(--rem-base) * 1rem);
@@ -161,6 +168,13 @@
   /* cc-deck blue accent */
   --link-font-color: #60a5fa;
   --link_hover-font-color: #93bbfd;
+  /* Admonition note: match cc-deck blue */
+  --note-color: #60a5fa;
+  /* Navbar */
+  --navbar-background: #0a0e1a;
+  --navbar_hover-background: #111827;
+  /* Nav sidebar heading */
+  --nav-heading-font-color: #60a5fa;
 
   /* Background palette: cool dark navy (matching landing page direction) */
   --color-body-bg: #0f1219;
