@@ -1,4 +1,4 @@
-/* Antwort custom overrides for countableSet/antora-ui bundle */
+/* cc-deck custom overrides for countableSet/antora-ui bundle */
 /* The bundle handles light/dark mode via CSS custom properties and data-theme attribute. */
 
 /* ---- Font: Inter (variable, loaded from Google Fonts) ---- */
@@ -6,15 +6,15 @@
 
 :root {
   --body-font-family: "Inter", -apple-system, system-ui, blinkmacsystemfont, "Segoe UI", roboto, sans-serif;
-  /* Antwort teal accent for light mode */
-  --link-font-color: #00a88e;
-  --link_hover-font-color: #00c5a8;
+  /* cc-deck blue accent for light mode */
+  --link-font-color: #1e40af;
+  --link_hover-font-color: #2563eb;
   /* Doc content: 15% larger than default (17px -> 19.55px) */
   --doc-font-size: calc(1.0625em * 1.15);
   --doc-font-size--desktop: calc(19.55 / var(--rem-base) * 1rem);
   /* Pagefind UI: light theme */
   --pagefind-ui-scale: 0.55;
-  --pagefind-ui-primary: #00a88e;
+  --pagefind-ui-primary: #1e40af;
   --pagefind-ui-text: #333;
   --pagefind-ui-background: #fff;
   --pagefind-ui-border: #dbdbdb;
@@ -124,7 +124,7 @@
 
 /* Tame the highlight markers */
 .pagefind-ui mark {
-  background-color: rgba(0, 168, 142, 0.15);
+  background-color: rgba(30, 64, 175, 0.15);
   color: inherit;
   padding: 0.1em 0.15em;
   border-radius: 2px;
@@ -158,9 +158,9 @@
 [data-theme="dark"] {
   --body-font-family: "Inter", -apple-system, system-ui, blinkmacsystemfont, "Segoe UI", roboto, sans-serif;
 
-  /* Antwort teal accent */
-  --link-font-color: #00e5c0;
-  --link_hover-font-color: #33ebd0;
+  /* cc-deck blue accent */
+  --link-font-color: #60a5fa;
+  --link_hover-font-color: #93bbfd;
 
   /* Background palette: cool dark navy (matching landing page direction) */
   --color-body-bg: #0f1219;
@@ -203,7 +203,7 @@
   --sidebar-background: #1c2230;
 
   /* Pagefind UI: dark theme */
-  --pagefind-ui-primary: #00e5c0;
+  --pagefind-ui-primary: #60a5fa;
   --pagefind-ui-text: #a8b2c2;
   --pagefind-ui-background: #161b24;
   --pagefind-ui-border: #2e3748;
@@ -222,7 +222,7 @@
 }
 
 [data-theme="dark"] .pagefind-ui .pagefind-ui__search-input:focus {
-  border-color: #00e5c0 !important;
+  border-color: #60a5fa !important;
 }
 
 /* Dark mode: clear button */
@@ -242,7 +242,7 @@
 }
 
 [data-theme="dark"] .pagefind-ui .pagefind-ui__result-link {
-  color: #00e5c0 !important;
+  color: #60a5fa !important;
 }
 
 [data-theme="dark"] .pagefind-ui .pagefind-ui__result-title {
@@ -270,6 +270,6 @@
 
 /* Dark mode: highlights */
 [data-theme="dark"] .pagefind-ui mark {
-  background-color: rgba(0, 229, 192, 0.15);
+  background-color: rgba(96, 165, 250, 0.15);
   color: #c8d0dc;
 }
