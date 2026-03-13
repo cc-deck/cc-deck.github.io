@@ -16,7 +16,7 @@ const metadata = {
   <!-- Hero Section -->
 
   <Hero
-    tagline="Zellij-powered &middot; Container-ready &middot; Multi-platform"
+    tagline="Terminal-native &middot; Container-ready &middot; Multi-platform"
     actions={[
       {
         variant: 'primary',
@@ -37,7 +37,7 @@ const metadata = {
     </Fragment>
 
     <Fragment slot="subtitle">
-      The TweetDeck for Claude Code. Monitor, attend to, and orchestrate multiple AI coding sessions from a single Zellij sidebar. Build custom container images. Deploy locally or on Kubernetes.
+      The TweetDeck for Claude Code. Keep track of all your AI coding sessions from a single sidebar. See which session needs attention, switch instantly, and never lose context again.
     </Fragment>
 
     <Fragment slot="image">
@@ -49,16 +49,17 @@ const metadata = {
             <span class="w-3 h-3 rounded-full bg-green-500/70"></span>
             <span class="ml-2 text-xs">terminal</span>
           </div>
-          <pre class="whitespace-pre-wrap" set:html={`<span class="text-accent">$</span> <span class="text-amber-400">podman</span> run -d --name mydev \\
+          <pre class="whitespace-pre-wrap" set:html={`<span class="text-slate-500"># Start a ready-to-use Claude Code environment</span>
+<span class="text-accent">$</span> <span class="text-amber-400">podman</span> run -d --name mydev \\
   -e ANTHROPIC_API_KEY=sk-ant-... \\
   <span class="text-emerald-400">quay.io/cc-deck/cc-deck-demo:latest</span>
 
 <span class="text-accent">$</span> <span class="text-amber-400">podman</span> exec -it mydev \\
-  <span class="text-emerald-400">zellij --layout cc-deck</span>
+  <span class="text-emerald-400">cc-deck start</span>
 
-<span class="text-slate-500"># The sidebar shows all your Claude Code sessions.</span>
+<span class="text-slate-500"># A sidebar tracks all your Claude Code sessions.</span>
 <span class="text-slate-500"># Smart attend switches to the one that needs you.</span>
-<span class="text-slate-500"># Navigate with keyboard. Build images with AI.</span>`} /></pre>
+<span class="text-slate-500"># Keyboard-driven. Works locally or on Kubernetes.</span>`} /></pre>
         </div>
       </div>
     </Fragment>
@@ -73,28 +74,28 @@ const metadata = {
     columns={2}
     items={[
       {
-        title: 'Zellij Sidebar Plugin',
+        title: 'Session Dashboard',
         description:
-          'A real-time sidebar showing all your Claude Code sessions across tabs. Smart attend automatically switches to the session that needs your attention. Keyboard navigation, pause, search, rename. Think TweetDeck columns, but for AI coding sessions.',
+          'A real-time sidebar showing all your Claude Code sessions at a glance. See which sessions are working, which need permission, and which just finished. Think TweetDeck columns, but for AI coding sessions.',
         icon: 'tabler:layout-sidebar-right',
       },
       {
         title: 'Custom Container Images',
         description:
-          'An AI-driven build pipeline that analyzes your repositories, discovers tool dependencies, and generates optimized container images. Extract tools, configure settings, build, and push with four Claude Code commands.',
+          'An AI-driven build pipeline that analyzes your repositories, discovers tool dependencies, and generates optimized container images. Four Claude Code commands handle the entire workflow.',
         icon: 'tabler:package',
       },
       {
         title: 'Multi-Platform',
         description:
-          'Run locally with Zellij, in Podman containers with mounted source code, or deploy as StatefulSets on Kubernetes and OpenShift. Same sidebar experience everywhere. Persistent sessions across reconnects.',
+          'Run locally in your terminal, in containers with mounted source code, or deploy on Kubernetes and OpenShift. Same experience everywhere. Persistent sessions across reconnects.',
         icon: 'tabler:device-desktop',
       },
       {
-        title: 'Session Management',
+        title: 'Smart Attention Management',
         description:
-          'Snapshots save and restore your session state. Pause sessions to exclude them from attend rotation. Auto-save on hooks. The sidebar tracks activity, permissions, and completion status for every session.',
-        icon: 'tabler:list-check',
+          'Stop checking each session manually. Smart attend automatically cycles through sessions that need you, prioritizing permission requests over completed tasks. One keypress takes you where you are needed.',
+        icon: 'tabler:bell-ringing',
       },
     ]}
   />
@@ -108,40 +109,40 @@ const metadata = {
     columns={3}
     items={[
       {
-        title: 'Smart Attend',
+        title: 'Keyboard-First',
         description:
-          'Priority-based round-robin attention across sessions. Permission requests first, then notifications, then completed tasks. Skip sessions that are actively working. One keypress cycles through what needs you.',
-        icon: 'tabler:bell-ringing',
+          'Navigate sessions with j/k, switch with Enter, go back with Esc. Search with /, pause with p, rename with r. Every action has a shortcut. Your hands never leave the keyboard.',
+        icon: 'tabler:keyboard',
       },
       {
-        title: 'Keyboard Navigation',
+        title: 'Session Snapshots',
         description:
-          'Toggle navigation mode with Alt+s. Move with j/k or arrows. Enter to switch, Esc to go back. Search with /, help with ?. Every action has a keyboard shortcut.',
-        icon: 'tabler:keyboard',
+          'Save and restore session state across restarts. Auto-save on hooks. Name your snapshots. Resume exactly where you left off, even after a container restart.',
+        icon: 'tabler:camera',
       },
       {
         title: 'Build Pipeline',
         description:
-          'Four AI commands: /cc-deck.extract discovers tools from your repos. /cc-deck.settings selects local config to include. /cc-deck.build generates a Containerfile and builds the image. /cc-deck.push publishes it.',
+          'Create team-standard images with AI assistance. Analyze repos for dependencies, select your preferred settings, generate an optimized Containerfile, build, and push.',
         icon: 'tabler:hammer',
       },
       {
-        title: 'Podman Ready',
+        title: 'Container-Ready',
         description:
-          'Mount your source code as volumes. Pass API keys or Vertex AI credentials. Persistent containers with sleep infinity. Reconnect anytime with podman exec.',
+          'Mount your source code as volumes. Pass API keys or Vertex AI credentials. Persistent containers you can connect to and disconnect from. Your environment, portable.',
         icon: 'tabler:container',
       },
       {
         title: 'Kubernetes Native',
         description:
-          'Deploy as StatefulSets with PersistentVolumes. Inject credentials via Secrets. Scale sessions with replicas. Connect via port-forward or direct exec.',
+          'Deploy as StatefulSets with persistent storage. Inject credentials via Secrets. Scale sessions with replicas. Run Claude Code for your whole team.',
         icon: 'tabler:cloud',
       },
       {
-        title: 'Session Snapshots',
+        title: 'Pause & Focus',
         description:
-          'Save and restore session state across container restarts. Auto-save via hooks. Name your snapshots. List and manage saved states from the CLI.',
-        icon: 'tabler:camera',
+          'Pause sessions you are not actively working on. Paused sessions are excluded from smart attend rotation, letting you focus on what matters right now.',
+        icon: 'tabler:player-pause',
       },
     ]}
   >
@@ -158,21 +159,21 @@ const metadata = {
     title="Running in two minutes"
     items={[
       {
-        title: 'Step 1: <span class="font-medium">Start the container</span>',
+        title: 'Step 1: <span class="font-medium">Start the environment</span>',
         description:
-          'Pull the demo image and start a persistent container. Set your API key or mount Vertex AI credentials: <code class="bg-slate-800 text-accent px-2 py-0.5 rounded text-sm">podman run -d --name mydev -e ANTHROPIC_API_KEY=sk-ant-... quay.io/cc-deck/cc-deck-demo:latest</code>',
+          'Pull the demo image and start a persistent container with your API key: <code class="bg-slate-800 text-accent px-2 py-0.5 rounded text-sm">podman run -d --name mydev -e ANTHROPIC_API_KEY=sk-ant-... quay.io/cc-deck/cc-deck-demo:latest</code>',
         icon: 'tabler:container',
       },
       {
         title: 'Step 2: <span class="font-medium">Launch cc-deck</span>',
         description:
-          'Connect to the container and start Zellij with the cc-deck layout: <code class="bg-slate-800 text-accent px-2 py-0.5 rounded text-sm">podman exec -it mydev zellij --layout cc-deck</code>',
+          'Connect and start the session dashboard: <code class="bg-slate-800 text-accent px-2 py-0.5 rounded text-sm">podman exec -it mydev cc-deck start</code>',
         icon: 'tabler:rocket',
       },
       {
         title: 'Step 3: <span class="font-medium">Start coding with Claude</span>',
         description:
-          'Open new tabs, start Claude Code sessions. The sidebar tracks them all. Press Alt+n for smart attend, Alt+s to navigate. Claude Code is ready to go.',
+          'Open new tabs and start Claude Code sessions. The sidebar tracks them all. Press Alt+n for smart attend, Alt+s to navigate between sessions.',
         icon: 'tabler:code',
       },
       {
