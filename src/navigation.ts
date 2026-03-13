@@ -55,6 +55,6 @@ export const footerData = {
     { ariaLabel: 'GitHub', icon: 'tabler:brand-github', href: 'https://github.com/cc-deck/cc-deck' },
   ],
   footNote: `
-    cc-deck &mdash; The TweetDeck for Claude Code. Created by <a class="text-accent underline" href="https://github.com/rhuss">Roland Hu&szlig;</a>
+    cc-deck | The TweetDeck for Claude Code. Created by <a class="text-accent underline" href="https://github.com/rhuss">Roland Hu&szlig;</a>
   `,
 };
