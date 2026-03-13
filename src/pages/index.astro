@@ -26,7 +26,7 @@ const metadata = {
       },
       {
         text: 'View on GitHub',
-        href: 'https://github.com/rhuss/cc-deck',
+        href: 'https://github.com/cc-deck/cc-deck',
         target: '_blank',
         icon: 'tabler:brand-github',
       },
@@ -51,7 +51,7 @@ const metadata = {
           </div>
           <pre class="whitespace-pre-wrap" set:html={`<span class="text-accent">$</span> <span class="text-amber-400">podman</span> run -d --name mydev \\
   -e ANTHROPIC_API_KEY=sk-ant-... \\
-  <span class="text-emerald-400">quay.io/rhuss/cc-deck-demo:latest</span>
+  <span class="text-emerald-400">quay.io/cc-deck/cc-deck-demo:latest</span>
 
 <span class="text-accent">$</span> <span class="text-amber-400">podman</span> exec -it mydev \\
   <span class="text-emerald-400">zellij --layout cc-deck</span>
@@ -160,7 +160,7 @@ const metadata = {
       {
         title: 'Step 1: <span class="font-medium">Start the container</span>',
         description:
-          'Pull the demo image and start a persistent container. Set your API key or mount Vertex AI credentials: <code class="bg-slate-800 text-accent px-2 py-0.5 rounded text-sm">podman run -d --name mydev -e ANTHROPIC_API_KEY=sk-ant-... quay.io/rhuss/cc-deck-demo:latest</code>',
+          'Pull the demo image and start a persistent container. Set your API key or mount Vertex AI credentials: <code class="bg-slate-800 text-accent px-2 py-0.5 rounded text-sm">podman run -d --name mydev -e ANTHROPIC_API_KEY=sk-ant-... quay.io/cc-deck/cc-deck-demo:latest</code>',
         icon: 'tabler:container',
       },
       {
@@ -196,7 +196,7 @@ const metadata = {
       },
       {
         text: 'View on GitHub',
-        href: 'https://github.com/rhuss/cc-deck',
+        href: 'https://github.com/cc-deck/cc-deck',
         target: '_blank',
         icon: 'tabler:brand-github',
       },

@@ -1,6 +1,6 @@
 site:
   name: cc-deck
-  site: 'https://rhuss.github.io/cc-deck.github.io'
+  site: 'https://cc-deck.github.io'
   base: '/'
   trailingSlash: false
 
