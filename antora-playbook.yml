@@ -9,6 +9,10 @@ content:
       branches: main
       start_path: docs
 
+asciidoc:
+  attributes:
+    source-highlighter: highlight.js
+
 ui:
   bundle:
     url: ./ui-bundle.zip

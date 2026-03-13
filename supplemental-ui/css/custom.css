@@ -1,6 +1,40 @@
 /* cc-deck custom overrides for countableSet/antora-ui bundle */
 /* The bundle handles light/dark mode via CSS custom properties and data-theme attribute. */
 
+/* ---- Syntax highlighting: stronger colors ---- */
+/* Light mode: GitHub-inspired */
+.hljs-keyword, .hljs-selector-tag { color: #1e40af; font-weight: 600; }
+.hljs-string, .hljs-attr { color: #22863a; }
+.hljs-number, .hljs-literal { color: #b45309; }
+.hljs-comment { color: #6b7280; font-style: italic; }
+.hljs-built_in, .hljs-type { color: #7c3aed; }
+.hljs-function .hljs-title, .hljs-title.function_ { color: #6f42c1; }
+.hljs-variable, .hljs-template-variable { color: #e36209; }
+.hljs-meta { color: #6b7280; }
+.hljs-doctag { color: #1e40af; font-weight: 600; }
+.hljs-section { color: #1e40af; font-weight: 700; }
+
+/* Shell-specific: make commands and flags stand out */
+.language-bash .hljs-built_in, .language-sh .hljs-built_in { color: #1e40af; font-weight: 600; }
+.language-bash .hljs-variable, .language-sh .hljs-variable { color: #e36209; }
+.language-bash .hljs-string, .language-sh .hljs-string { color: #22863a; }
+.language-bash .hljs-comment, .language-sh .hljs-comment { color: #6b7280; font-style: italic; }
+
+/* YAML: keys vs values */
+.language-yaml .hljs-attr { color: #1e40af; font-weight: 600; }
+.language-yaml .hljs-string { color: #22863a; }
+.language-yaml .hljs-number { color: #b45309; }
+.language-yaml .hljs-literal { color: #7c3aed; }
+
+/* KDL (Zellij config): treat like generic */
+.language-kdl .hljs-keyword { color: #1e40af; font-weight: 600; }
+.language-kdl .hljs-string { color: #22863a; }
+
+/* Dockerfile */
+.language-dockerfile .hljs-keyword { color: #1e40af; font-weight: 700; }
+.language-dockerfile .hljs-string { color: #22863a; }
+.language-dockerfile .hljs-comment { color: #6b7280; font-style: italic; }
+
 /* ---- Font: Inter (variable, loaded from Google Fonts) ---- */
 @import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&display=swap');
 
@@ -287,3 +321,32 @@
   background-color: rgba(96, 165, 250, 0.15);
   color: #c8d0dc;
 }
+
+/* ---- Dark mode: Syntax highlighting ---- */
+[data-theme="dark"] .hljs-keyword, [data-theme="dark"] .hljs-selector-tag { color: #60a5fa; font-weight: 600; }
+[data-theme="dark"] .hljs-string, [data-theme="dark"] .hljs-attr { color: #6ee7b7; }
+[data-theme="dark"] .hljs-number, [data-theme="dark"] .hljs-literal { color: #fbbf24; }
+[data-theme="dark"] .hljs-comment { color: #6b7280; font-style: italic; }
+[data-theme="dark"] .hljs-built_in, [data-theme="dark"] .hljs-type { color: #c4b5fd; }
+[data-theme="dark"] .hljs-function .hljs-title, [data-theme="dark"] .hljs-title.function_ { color: #a78bfa; }
+[data-theme="dark"] .hljs-variable, [data-theme="dark"] .hljs-template-variable { color: #fb923c; }
+[data-theme="dark"] .hljs-meta { color: #9ca3af; }
+[data-theme="dark"] .hljs-section { color: #60a5fa; font-weight: 700; }
+
+/* Dark shell */
+[data-theme="dark"] .language-bash .hljs-built_in,
+[data-theme="dark"] .language-sh .hljs-built_in { color: #60a5fa; font-weight: 600; }
+[data-theme="dark"] .language-bash .hljs-variable,
+[data-theme="dark"] .language-sh .hljs-variable { color: #fb923c; }
+[data-theme="dark"] .language-bash .hljs-string,
+[data-theme="dark"] .language-sh .hljs-string { color: #6ee7b7; }
+
+/* Dark YAML */
+[data-theme="dark"] .language-yaml .hljs-attr { color: #60a5fa; font-weight: 600; }
+[data-theme="dark"] .language-yaml .hljs-string { color: #6ee7b7; }
+[data-theme="dark"] .language-yaml .hljs-number { color: #fbbf24; }
+[data-theme="dark"] .language-yaml .hljs-literal { color: #c4b5fd; }
+
+/* Dark Dockerfile */
+[data-theme="dark"] .language-dockerfile .hljs-keyword { color: #60a5fa; font-weight: 700; }
+[data-theme="dark"] .language-dockerfile .hljs-string { color: #6ee7b7; }
