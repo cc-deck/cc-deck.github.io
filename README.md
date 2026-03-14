@@ -1,11 +1,11 @@
-# antwort.github.io
+# cc-deck.github.io
 
-Landing page and documentation site for [Antwort](https://github.com/rhuss/antwort), the server-side agentic framework.
+Landing page and documentation site for [cc-deck](https://github.com/cc-deck/cc-deck), the TweetDeck for Claude Code.
 
 ## Architecture
 
 - **Landing page**: Built with [Astro](https://astro.build) using the [AstroWind](https://github.com/onwidget/astrowind) template. Dark theme with cyan-teal accents.
-- **Documentation**: Built with [Antora](https://antora.org) from AsciiDoc sources in the main [antwort](https://github.com/rhuss/antwort) repo.
+- **Documentation**: Built with [Antora](https://antora.org) from AsciiDoc sources in the main [cc-deck](https://github.com/cc-deck/cc-deck) repo.
 - **Deployment**: GitHub Actions builds both, merges output, deploys to GitHub Pages.
 
 ## Local Development
@@ -31,21 +31,19 @@ Then open `dist/index.html` in a browser.
 
 ### Landing Page
 
-Edit `src/pages/index.astro`. The page composes AstroWind widgets (Hero, Features, Steps, CallToAction) with Antwort content passed as props.
+Edit `src/pages/index.astro`. The page composes AstroWind widgets (Hero, Features, Steps, CallToAction) with cc-deck content passed as props.
 
 ### Documentation
 
-Edit AsciiDoc files in the main `antwort` repo under `docs/modules/ROOT/pages/`. Add new pages to `docs/modules/ROOT/nav.adoc`.
+Edit AsciiDoc files in the main `cc-deck` repo under `docs/modules/ROOT/pages/`. Add new pages to `docs/modules/ROOT/nav.adoc`.
 
 ## Structure
 
 ```
 src/pages/index.astro          Landing page content
-src/components/Logo.astro      A! logo component
-src/assets/images/             Logo SVGs
 src/config.yaml                Site configuration
 src/navigation.ts              Header/footer navigation
 antora-playbook.yml            Antora build configuration
 supplemental-ui/css/           Antora dark theme overrides
-.github/workflows/publish.yml  CI/CD pipeline
+.github/workflows/actions.yaml CI pipeline (build + check)
 ```
