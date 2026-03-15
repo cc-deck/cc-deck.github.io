@@ -155,21 +155,21 @@ const metadata = {
     title="Running in two minutes"
     items={[
       {
-        title: 'Step 1: <span class="font-medium">Launch cc-deck</span>',
+        title: 'Step 1: <span class="font-medium">Install cc-deck</span>',
         description:
-          'One command to start: <code class="bg-slate-800 text-accent px-2 py-0.5 rounded text-sm">podman run -it --rm -e ANTHROPIC_API_KEY=sk-ant-... quay.io/rhuss/cc-deck-demo:latest</code>',
-        icon: 'tabler:rocket',
+          'On macOS: <code class="bg-slate-800 text-accent px-2 py-0.5 rounded text-sm">brew install cc-deck/tap/cc-deck</code>. On Linux, grab the RPM or DEB from <a href="https://github.com/cc-deck/cc-deck/releases" class="text-accent hover:underline">GitHub Releases</a>. Or try it instantly in a container: <code class="bg-slate-800 text-accent px-2 py-0.5 rounded text-sm">podman run -it --rm -e ANTHROPIC_API_KEY=... quay.io/cc-deck/cc-deck-demo:latest</code>',
+        icon: 'tabler:download',
       },
       {
-        title: 'Step 3: <span class="font-medium">Start coding with Claude</span>',
+        title: 'Step 2: <span class="font-medium">Launch and code</span>',
         description:
-          'Open new tabs and start Claude Code sessions. The sidebar tracks them all. Press Alt+n for smart attend, Alt+s to navigate between sessions.',
+          'Run <code class="bg-slate-800 text-accent px-2 py-0.5 rounded text-sm">cc-deck plugin install && zellij --layout cc-deck</code>. Open tabs, start Claude Code sessions. The sidebar tracks them all. Press Alt+a for smart attend, Alt+s to navigate.',
         icon: 'tabler:code',
       },
       {
-        title: 'Step 4: <span class="font-medium">Build your personal sandbox</span>',
+        title: 'Step 3: <span class="font-medium">Build your personal sandbox</span>',
         description:
-          'Create a container image from your local dev environment: <code class="bg-slate-800 text-accent px-2 py-0.5 rounded text-sm">cc-deck image init my-sandbox</code>. The LLM analyzes your repos, extracts tools, resolves conflicts, and builds your portable developer sandbox.',
+          'Create a bespoke container image from your local environment: <code class="bg-slate-800 text-accent px-2 py-0.5 rounded text-sm">cc-deck image init my-sandbox</code>. Claude Code analyzes your repos, extracts tools, and builds your portable developer sandbox.',
         icon: 'tabler:hammer',
       },
     ]}
