@@ -20,7 +20,7 @@ export const headerData = {
     {
       text: 'Get Started',
       href: getPermalink('/#get-started'),
-      variant: 'primary',
+      variant: 'primary' as const,
     },
   ],
 };
@@ -45,15 +45,11 @@ export const footerData = {
     },
     {
       title: 'Legal',
-      links: [
-        { text: 'Apache 2.0 License', href: 'https://github.com/cc-deck/cc-deck/blob/main/LICENSE' },
-      ],
+      links: [{ text: 'Apache 2.0 License', href: 'https://github.com/cc-deck/cc-deck/blob/main/LICENSE' }],
     },
   ],
   secondaryLinks: [],
-  socialLinks: [
-    { ariaLabel: 'GitHub', icon: 'tabler:brand-github', href: 'https://github.com/cc-deck/cc-deck' },
-  ],
+  socialLinks: [{ ariaLabel: 'GitHub', icon: 'tabler:brand-github', href: 'https://github.com/cc-deck/cc-deck' }],
   footNote: `
     cc-deck | The TweetDeck for Claude Code. Created with <a class="text-accent underline" href="https://github.com/rhuss/cc-sdd">Spec-Driven Development</a> by Claude, assisted by <a class="text-accent underline" href="https://github.com/rhuss">Roland Hu&szlig;</a>
   `,
