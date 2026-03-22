@@ -1,11 +1,5 @@
-import { getPermalink } from './utils/permalinks';
-
 export const headerData = {
   links: [
-    {
-      text: 'Features',
-      href: getPermalink('/#features'),
-    },
     {
       text: 'Docs',
       href: '/docs/',
@@ -16,13 +10,7 @@ export const headerData = {
       target: '_blank',
     },
   ],
-  actions: [
-    {
-      text: 'Get Started',
-      href: getPermalink('/#get-started'),
-      variant: 'primary' as const,
-    },
-  ],
+  actions: [],
 };
 
 export const footerData = {
@@ -30,17 +18,8 @@ export const footerData = {
     {
       title: 'Project',
       links: [
-        { text: 'Features', href: getPermalink('/#features') },
         { text: 'Documentation', href: '/docs/' },
-        { text: 'Getting Started', href: getPermalink('/#get-started') },
-      ],
-    },
-    {
-      title: 'Community',
-      links: [
         { text: 'GitHub', href: 'https://github.com/cc-deck/cc-deck' },
-        { text: 'Issues', href: 'https://github.com/cc-deck/cc-deck/issues' },
-        { text: 'Discussions', href: 'https://github.com/cc-deck/cc-deck/discussions' },
       ],
     },
     {

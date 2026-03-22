@@ -1,10 +1,6 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 
-import Hero from '~/components/widgets/Hero.astro';
-import Features from '~/components/widgets/Features.astro';
-import Steps from '~/components/widgets/Steps.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
 const metadata = {
   title: 'cc-deck - Your Claude Code command center',
   ignoreTitleTemplate: true,
@@ -12,211 +8,44 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <!-- Beta Disclaimer -->
-  <div class="bg-amber-500/10 border-b border-amber-500/30">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 text-center">
-      <p class="text-sm sm:text-base text-amber-200 font-medium">
-        <span class="inline-flex items-center gap-1.5">
-          <span class="bg-amber-500 text-black text-xs font-bold px-2 py-0.5 rounded-full uppercase tracking-wider"
-            >Beta</span
-          >
-          <span
-            >cc-deck is currently in beta and not yet suitable for production use. Expect breaking changes and rough
-            edges.</span
-          >
-        </span>
-      </p>
-    </div>
-  </div>
-
-  <!-- Hero Section -->
-
-  <Hero
-    tagline="Terminal-native · Container-ready · Multi-platform · Zellij Plugin"
-    actions={[
-      {
-        variant: 'primary',
-        text: 'Get Started',
-        href: '#get-started',
-        icon: 'tabler:rocket',
-      },
-      {
-        text: 'View on GitHub',
-        href: 'https://github.com/cc-deck/cc-deck',
-        target: '_blank',
-        icon: 'tabler:brand-github',
-      },
-    ]}
-  >
-    <Fragment slot="title">
-      cc-deck<br /><span class="text-accent">Your Claude Code command center.</span>
-    </Fragment>
-
-    <Fragment slot="subtitle">
-      The TweetDeck for Claude Code. Keep track of all your AI coding sessions from a single Zellij sidebar. See which
-      session needs attention, switch instantly, and never lose context again.
-    </Fragment>
-
-    <Fragment slot="image">
-      <div class="relative m-auto max-w-4xl">
-        <div
-          class="rounded-lg bg-slate-900 border border-slate-700 p-4 sm:p-6 shadow-2xl font-mono text-xs sm:text-sm text-slate-300 overflow-x-auto"
+  <section class="flex items-center justify-center min-h-[80vh] px-4">
+    <div class="text-center max-w-3xl mx-auto">
+      <div class="mb-6">
+        <span
+          class="inline-block bg-accent/10 text-accent text-sm font-semibold px-4 py-1.5 rounded-full border border-accent/20"
         >
-          <div class="flex items-center gap-2 mb-3 text-slate-500">
-            <span class="w-3 h-3 rounded-full bg-red-500/70"></span>
-            <span class="w-3 h-3 rounded-full bg-yellow-500/70"></span>
-            <span class="w-3 h-3 rounded-full bg-green-500/70"></span>
-            <span class="ml-2 text-xs">terminal</span>
-          </div>
-          <pre
-            class="whitespace-pre-wrap"
-            set:html={`<span class="text-accent">$</span> <span class="text-amber-400">podman</span> run -it --rm -e ANTHROPIC_API_KEY=sk-ant-... <span class="text-emerald-400">quay.io/rhuss/cc-deck-demo:latest</span>`}
-          />
-        </div>
+          Coming Soon
+        </span>
       </div>
-    </Fragment>
-  </Hero>
 
-  <!-- Core Value Proposition -->
+      <h1 class="text-5xl md:text-6xl font-bold tracking-tight mb-4">
+        cc-deck
+      </h1>
 
-  <Features
-    id="pillars"
-    tagline="Why cc-deck"
-    title="Your sessions, under control"
-    columns={2}
-    items={[
-      {
-        title: 'Session Dashboard',
-        description:
-          'A real-time sidebar showing all your Claude Code sessions at a glance. See which sessions are working, which need permission, and which just finished. Think TweetDeck columns, but for AI coding sessions.',
-        icon: 'tabler:layout-sidebar-right',
-      },
-      {
-        title: 'Personal Dev Sandboxes',
-        description:
-          'Turn your local desktop environment into a portable container image. An LLM analyzes your repositories, discovers tool dependencies, resolves version conflicts, and generates an optimized sandbox with your exact toolchain. Rebuild anytime as your projects evolve.',
-        icon: 'tabler:package',
-      },
-      {
-        title: 'Multi-Platform',
-        description:
-          'Run locally in your terminal, in containers with mounted source code, or deploy on Kubernetes and OpenShift. Same experience everywhere. Persistent sessions across reconnects.',
-        icon: 'tabler:device-desktop',
-      },
-      {
-        title: 'Smart Attention Management',
-        description:
-          'Stop checking each session manually. Smart attend automatically cycles through sessions that need you, prioritizing permission requests over completed tasks. One keypress takes you where you are needed.',
-        icon: 'tabler:bell-ringing',
-      },
-    ]}
-  />
+      <p class="text-xl md:text-2xl text-accent font-medium mb-6">
+        Your Claude Code command center.
+      </p>
 
-  <!-- Feature Details -->
+      <p class="text-lg text-muted max-w-xl mx-auto mb-10">
+        The TweetDeck for Claude Code. A Zellij sidebar plugin to manage all your AI coding sessions from one place.
+      </p>
 
-  <Features
-    id="features"
-    tagline="Features"
-    title="Everything you need for multi-session Claude Code"
-    columns={3}
-    items={[
-      {
-        title: 'Keyboard-First',
-        description:
-          'Navigate sessions with j/k, switch with Enter, go back with Esc. Search with /, pause with p, rename with r. Every action has a shortcut. Your hands never leave the keyboard.',
-        icon: 'tabler:keyboard',
-      },
-      {
-        title: 'Session Snapshots',
-        description:
-          'Save and restore session state across restarts. Auto-save on hooks. Name your snapshots. Resume exactly where you left off, even after a container restart.',
-        icon: 'tabler:camera',
-      },
-      {
-        title: 'AI-Driven Image Builder',
-        description:
-          'Point the LLM at your projects and it figures out what tools you need. It resolves conflicts in the discovered tooling, picks compatible versions, and generates a Containerfile that actually builds. When something breaks, it fixes and retries.',
-        icon: 'tabler:hammer',
-      },
-      {
-        title: 'Container-Ready',
-        description:
-          'Mount your source code as volumes. Pass API keys or Vertex AI credentials. Persistent containers you can connect to and disconnect from. Your environment, portable.',
-        icon: 'tabler:container',
-      },
-      {
-        title: 'Kubernetes Native',
-        description:
-          'Deploy your personal sandbox as a StatefulSet with persistent storage. Work from any machine, reconnect anytime. Same environment whether you are on your laptop or a remote cluster.',
-        icon: 'tabler:cloud',
-      },
-      {
-        title: 'Pause & Focus',
-        description:
-          'Pause sessions you are not actively working on. Paused sessions are excluded from smart attend rotation, letting you focus on what matters right now.',
-        icon: 'tabler:player-pause',
-      },
-      {
-        title: 'Network Filtering',
-        description:
-          'Control which domains your containerized sessions can reach. Built-in domain groups cover common ecosystems like npm, PyPI, and Maven. A Tinyproxy sidecar enforces the allowlist, and you can add or remove domains live without restarting sessions.',
-        icon: 'tabler:shield-lock',
-      },
-    ]}
-  >
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Features>
-
-  <!-- Quickstart Steps -->
-
-  <Steps
-    id="get-started"
-    tagline="Get Started"
-    title="Running in two minutes"
-    items={[
-      {
-        title: 'Step 1: <span class="font-medium">Install cc-deck</span>',
-        description:
-          'On macOS: <code class="bg-slate-800 text-accent px-2 py-0.5 rounded text-sm">brew install cc-deck/tap/cc-deck</code>. On Linux, grab the RPM or DEB from <a href="https://github.com/cc-deck/cc-deck/releases" class="text-accent hover:underline">GitHub Releases</a>. Or try it instantly in a container: <code class="bg-slate-800 text-accent px-2 py-0.5 rounded text-sm">podman run -it --rm -e ANTHROPIC_API_KEY=... quay.io/cc-deck/cc-deck-demo:latest</code>',
-        icon: 'tabler:download',
-      },
-      {
-        title: 'Step 2: <span class="font-medium">Launch and code</span>',
-        description:
-          'Run <code class="bg-slate-800 text-accent px-2 py-0.5 rounded text-sm">cc-deck plugin install && zellij --layout cc-deck</code>. Open tabs, start Claude Code sessions. The sidebar tracks them all. Press Alt+a for smart attend, Alt+s to navigate.',
-        icon: 'tabler:code',
-      },
-      {
-        title: 'Step 3: <span class="font-medium">Build your personal sandbox</span>',
-        description:
-          'Create a bespoke container image from your local environment: <code class="bg-slate-800 text-accent px-2 py-0.5 rounded text-sm">cc-deck image init my-sandbox</code>. Claude Code analyzes your repos, extracts tools, and builds your portable developer sandbox.',
-        icon: 'tabler:hammer',
-      },
-    ]}
-  />
-
-  <!-- Call to Action -->
-
-  <CallToAction
-    actions={[
-      {
-        variant: 'primary',
-        text: 'Read the Docs',
-        href: '/docs/',
-        icon: 'tabler:book',
-      },
-      {
-        text: 'View on GitHub',
-        href: 'https://github.com/cc-deck/cc-deck',
-        target: '_blank',
-        icon: 'tabler:brand-github',
-      },
-    ]}
-  >
-    <Fragment slot="title"> Ready to take control of your Claude Code sessions? </Fragment>
-
-    <Fragment slot="subtitle"> Open source. Works locally, in containers, or on Kubernetes. </Fragment>
-  </CallToAction>
+      <div class="flex flex-wrap gap-4 justify-center">
+        <a
+          href="/docs/"
+          class="inline-flex items-center gap-2 bg-accent text-white font-semibold px-6 py-3 rounded-lg hover:bg-accent/90 transition-colors"
+        >
+          Read the Docs
+        </a>
+        <a
+          href="https://github.com/cc-deck/cc-deck"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 border border-slate-600 text-slate-300 font-semibold px-6 py-3 rounded-lg hover:border-slate-400 hover:text-white transition-colors"
+        >
+          GitHub
+        </a>
+      </div>
+    </div>
+  </section>
 </Layout>
