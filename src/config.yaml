@@ -9,7 +9,7 @@ metadata:
   title:
     default: cc-deck
     template: '%s | cc-deck'
-  description: 'Your Claude Code command center. Zellij sidebar plugin for session management, custom container images, and multi-platform deployment.'
+  description: 'The TweetDeck for Claude Code. Manage in one place, run anywhere.'
   robots:
     index: true
     follow: true
